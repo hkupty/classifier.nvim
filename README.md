@@ -20,5 +20,5 @@ local icons = require("nvim-web-devicons")
 icons.get_icon(filename, classifier.ext(vim.bo.ft)[1])
 
 -- another example
-vim.fn.systemlist("rg --vimgrep -g '*.{" .. table.concat(classifier.ext(ft), ",") .. "}' -- " .. some_search)
+vim.fn.systemlist("rg --vimgrep -g '*.{" .. table.concat(classifier.fts(ft), ",") .. "}' -- " .. some_search)
 ```
