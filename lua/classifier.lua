@@ -26,7 +26,7 @@ classifier.exts = setmetatable({}, {
         end
       end
 
-      return this_ft
+      return this_ft or ext
     end
 })
 
