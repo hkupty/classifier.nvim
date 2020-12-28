@@ -1,12 +1,15 @@
 local classifier = {}
 
-
-classifier.fts = {
+classifier.fts = setmetatable({
   clojure = {"clj", "cljc", "cljs", "edn"},
-  lua = {"lua"},
   python = {"py", "py3"},
-  sh = {"sh", "bash"}
-}
+  sh = {"sh", "bash"},
+  c = {"c", "h"},
+}, {
+  __call = function(tbl, k)
+    return rawget(tbl, k) or k
+  end
+})
 
 classifier.exts = setmetatable({}, {
     __index = function(tbl, ext)
@@ -26,6 +29,5 @@ classifier.exts = setmetatable({}, {
       return this_ft
     end
 })
-
 
 return classifier
