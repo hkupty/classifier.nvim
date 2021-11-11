@@ -7,7 +7,8 @@ classifier.fts = setmetatable({
   c = {"c", "h"},
 }, {
   __call = function(tbl, k)
-    return rawget(tbl, k) or k
+    local extensions = rawget(tbl, k)
+    return extensions and extensions[1] or {k}
   end
 })
 
